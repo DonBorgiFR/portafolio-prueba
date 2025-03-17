@@ -1,9 +1,23 @@
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #555;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --hero-background: #e0e0e0;
+    --footer-background: #333;
+    --footer-text: #fff;
+    --btn-background: #fff;
+    --btn-text: #007bff;
+    --transition-speed: 0.3s;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
 .container {
@@ -11,43 +25,55 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .hero {
-    background-color: #e0e0e0; /* Fondo gris claro */
-    color: #333;
+    background-color: var(--hero-background);
+    color: var(--text-color);
     text-align: center;
     padding: 80px 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
 .hero h1 {
     font-size: 2.8em;
     margin-bottom: 5px;
-    color: #007bff;
+    color: var(--primary-color);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .hero p {
     font-size: 1.2em;
     margin-bottom: 20px;
-    color: #555;
+    color: var(--secondary-color);
 }
 
 .social-links {
     margin-top: 30px;
+    display: flex;
+    justify-content: center;
 }
 
 .btn {
     display: inline-block;
-    background-color: #fff;
-    color: #007bff;
+    background-color: var(--btn-background);
+    color: var(--btn-text);
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
     margin: 0 10px;
     font-weight: bold;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.btn:hover {
+    background-color: var(--primary-color);
+    color: #fff;
 }
 
 .profile {
@@ -60,12 +86,41 @@ body {
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid #007bff;
+    border: 5px solid var(--primary-color);
+    transition: border-color var(--transition-speed);
 }
 
 .footer {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--footer-background);
+    color: var(--footer-text);
     text-align: center;
     padding: 20px 0;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .hero {
+        padding: 60px 20px;
+    }
+
+    .profile {
+        padding: 30px 20px;
+    }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #121212;
+        --text-color: #e0e0e0;
+        --hero-background: #1e1e1e;
+        --footer-background: #1e1e1e;
+        --footer-text: #e0e0e0;
+        --btn-background: #333;
+        --btn-text: #e0e0e0;
+    }
 }
